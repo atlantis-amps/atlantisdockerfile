@@ -39,7 +39,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     mesa-common-dev \
     libglu1-mesa-dev \
     texlive-latex-extra \
-    netcdf-bin \
+    netcdf-bin 
     
 RUN apt-get -y --no-install-recommends install \
     gdal-bin \
