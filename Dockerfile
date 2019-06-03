@@ -15,10 +15,17 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     libgeos-dev \
     libgeo-proj4-perl \
     libgeos++-dev \
+    libpoppler-cpp-dev \
+    librsvg2-dev \
+    libx11-dev \
+    libprotobuf-dev \
+    lsscsi \
+    libcairo2 \
+    libcairo2-dev \
+    libapparmor1 \
     subversion \
     flip \
     autoconf \
-    lsscsi \
     curl \
     gdebi-core \
     openssl \
@@ -27,32 +34,22 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     rpm \
     ntp \
     ntpdate \
+    htop \
+    protobuf-compiler \
+    mesa-common-dev \
+    libglu1-mesa-dev \
+    texlive-latex-extra \
+    netcdf-bin \
+    
+RUN apt-get -y --no-install-recommends install \
     gdal-bin \
     python2.7 \
     python-pip \
     python-dev \
-    libpoppler-cpp-dev \
-    htop \
-    libprotobuf-dev \
-    protobuf-compiler \
-    librsvg2-dev \
-    libx11-dev \
-    mesa-common-dev \
-    libglu1-mesa-dev \
-    texlive-latex-extra \
-    libcairo2 \
-    libcairo2-dev \
-    netcdf-bin \
-    libapparmor1 
-    
-RUN apt-get -y --no-install-recommends install \
-    gdal-bin \
     python-gdal \
-    python3-gdal
-    
-RUN apt-get update -qq && apt-get -y --no-install-recommends install \
+    python3-gdal \
     libjq-dev
-     
+         
 #Install AzCopy, ver. 7.2 includes .NET Core dependencies; they do not need to install them a pre-requisite
 #https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux
 RUN \
