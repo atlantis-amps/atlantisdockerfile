@@ -1,7 +1,6 @@
 FROM rocker/tidyverse:latest
 MAINTAINER hmorzaria@hotmail.com
 # Install minimum requirements
-RUN timedatectl set-timezone America/Los_Angeles
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     libhdf5-dev \
     libnetcdf-dev \
@@ -74,7 +73,7 @@ RUN \
     'parallel', \
     'futures', \
     'doSNOW', \
-    'raster'), \
+    'raster'), 
  dependencies = TRUE)"
   
 RUN Rscript -e "devtools::install_github('jporobicg/shinyrAtlantis')"
