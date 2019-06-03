@@ -84,5 +84,5 @@ RUN Rscript -e "devtools::install_github('Azure/doAzureParallel')"
 
 ENV TZ America/Los_Angeles
 RUN ln -snf /usr/share/timezone/$TZ /etc/localtime && echo $TZ > /etc/timezone
-CMD ["R"]
+
 © 2019 GitHub, Inc.
