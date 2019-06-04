@@ -3,6 +3,7 @@ MAINTAINER hmorzaria@hotmail.com
 # Install minimum requirements
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     autoconf \
+    automake \
     curl \
     flip \
     gdebi-core \
