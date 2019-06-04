@@ -2,6 +2,14 @@ FROM rocker/tidyverse:latest
 MAINTAINER hmorzaria@hotmail.com
 # Install minimum requirements
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
+    autoconf \
+    curl \
+    flip \
+    gdebi-core \
+    gdal-bin \
+    libcairo2 \
+    libcairo2-dev \
+    libapparmor1 \
     libhdf5-dev \
     libnetcdf-dev \
     libgdal-dev \
@@ -11,43 +19,33 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     libproj12 \
     libssl-dev \
     libv8-dev \
+    libjq-dev \
     libgeos-dev \
     libgeo-proj4-perl \
     libgeos++-dev \
+    libglu1-mesa-dev \
     libpoppler-cpp-dev \
+    libprotobuf-dev \
     librsvg2-dev \
     libx11-dev \
-    libprotobuf-dev \
     lsscsi \
-    libcairo2 \
-    libcairo2-dev \
-    libapparmor1 \
-    subversion \
-    flip \
-    autoconf \
-    curl \
-    gdebi-core \
-    openssl \
-    proj-bin \
-    proj-data \
-    rpm \
-    ntp \
-    ntpdate \
-    htop \
-    protobuf-compiler \
-    mesa-common-dev \
-    libglu1-mesa-dev \
-    texlive-latex-extra \
-    netcdf-bin 
-    
-RUN apt-get -y --no-install-recommends install \
-    gdal-bin \
     python2.7 \
     python-pip \
     python-dev \
     python-gdal \
     python3-gdal \
-    libjq-dev
+    proj-bin \
+    proj-data \
+    protobuf-compiler \
+    htop \
+    openssl \
+    rpm \
+    mesa-common-dev \
+    netcdf-bin \
+    ntp \
+    ntpdate \
+    subversion \
+    texlive-latex-extra    
          
 #Install AzCopy, ver. 7.2 includes .NET Core dependencies; they do not need to install them a pre-requisite
 #https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux
@@ -73,8 +71,8 @@ RUN \
     'parallel', \
     'futures', \
     'doSNOW', \
-    'raster'), 
- dependencies = TRUE)"
+    'raster'), \
+    dependencies = TRUE)"
   
 RUN Rscript -e "devtools::install_github('jporobicg/shinyrAtlantis')"
 RUN Rscript -e "devtools::install_github('Atlantis-Ecosystem-Model/ReactiveAtlantis')"
